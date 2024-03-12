@@ -24,6 +24,19 @@ sourceSets {
 	}
 }
 
+jar.enabled = false
+sourceJar.enabled = false
+
+task clientJar(type: Jar, dependsOn: clientClasses) {
+    archiveClassifier = 'client'
+    from sourceSets.client.output
+}
+
+task serverJar(type: Jar, dependsOn: serverClasses) {
+    archiveClassifier = 'server'
+    from sourceSets.server.output
+}
+
 task clientSourcesJar(type: Jar, dependsOn: clientClasses) {
     archiveClassifier = 'client-sources'
     from sourceSets.client.allSource
@@ -35,6 +48,8 @@ task serverSourcesJar(type: Jar, dependsOn: serverClasses) {
 }
 
 artifacts {
+	archives clientJar
+	archives serverJar
     archives clientSourcesJar    
     archives serverSourcesJar 
 }
