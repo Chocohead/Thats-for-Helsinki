@@ -28,42 +28,42 @@ jar.enabled = false
 sourcesJar.enabled = false
 
 task clientJar(type: Jar, dependsOn: clientClasses) {
-    archiveClassifier = 'client'
-    from sourceSets.client.output
-    afterEvaluate {
-    	manifest {
-    		from(jar.manifest)
-    		attributes 'CommonMixin': 'thats-for-helsinki.mixins.json'
+	archiveClassifier = 'client'
+	from sourceSets.client.output
+	afterEvaluate {
+		manifest {
+			from(jar.manifest)
+			attributes 'CommonMixin': 'thats-for-helsinki.mixins.json'
 		}
-    }
+	}
 }
 
 task serverJar(type: Jar, dependsOn: serverClasses) {
-    archiveClassifier = 'server'
-    from sourceSets.server.output
-    afterEvaluate {
-    	manifest {
-    		from(jar.manifest)
-    		attributes 'CommonMixin': 'thats-for-helsinki.mixins.json'
+	archiveClassifier = 'server'
+	from sourceSets.server.output
+	afterEvaluate {
+		manifest {
+			from(jar.manifest)
+			attributes 'CommonMixin': 'thats-for-helsinki.mixins.json'
 		}
-    }
+	}
 }
 
 task clientSourcesJar(type: Jar, dependsOn: clientClasses) {
-    archiveClassifier = 'client-sources'
-    from sourceSets.client.allSource
+	archiveClassifier = 'client-sources'
+	from sourceSets.client.allSource
 }
 
 task serverSourcesJar(type: Jar, dependsOn: serverClasses) {
-    archiveClassifier = 'server-sources'
-    from sourceSets.server.allSource
+	archiveClassifier = 'server-sources'
+	from sourceSets.server.allSource
 }
 
 artifacts {
 	archives clientJar
 	archives serverJar
-    archives clientSourcesJar    
-    archives serverSourcesJar 
+	archives clientSourcesJar	
+	archives serverSourcesJar 
 }
 
 foxloader {
@@ -72,5 +72,4 @@ foxloader {
 	modVersion = project.version
 	modDesc = 'Restoring achievements and statistics'
 	commonMod = 'com.chocohead.tfh.ThatsForHelsinki'
-	commonMixin = 'thats-for-helsinki.mixins.json'
 }
