@@ -18,9 +18,11 @@ sourceSets {
 	}
 	client {
 		java.srcDirs += ['src/main/java']
+		resources.srcDirs += ['src/resources/java']
 	}
 	server {
 		java.srcDirs += ['src/main/java']
+		resources.srcDirs += ['src/resources/java']
 	}
 }
 
@@ -62,8 +64,8 @@ task serverSourcesJar(type: Jar, dependsOn: serverClasses) {
 artifacts {
 	archives clientJar
 	archives serverJar
-	archives clientSourcesJar	
-	archives serverSourcesJar 
+	archives clientSourcesJar
+	archives serverSourcesJar
 }
 
 foxloader {
