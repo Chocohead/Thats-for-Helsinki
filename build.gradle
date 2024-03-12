@@ -30,11 +30,23 @@ sourceJar.enabled = false
 task clientJar(type: Jar, dependsOn: clientClasses) {
     archiveClassifier = 'client'
     from sourceSets.client.output
+    afterEvaluate {
+    	manifest {
+    		from(jar.manifest)
+    		attributes 'CommonMixin:': 'thats-for-helsinki.mixins.json'
+		}
+    }
 }
 
 task serverJar(type: Jar, dependsOn: serverClasses) {
     archiveClassifier = 'server'
     from sourceSets.server.output
+    afterEvaluate {
+    	manifest {
+    		from(jar.manifest)
+    		attributes 'CommonMixin:': 'thats-for-helsinki.mixins.json'
+		}
+    }
 }
 
 task clientSourcesJar(type: Jar, dependsOn: clientClasses) {
