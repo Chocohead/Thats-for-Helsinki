@@ -1,0 +1,5 @@
+ModId: thats-for-helsinki
+ModName: That's For Helsinki
+ModDesc: Restoring achievements and statistics
+CommonMod: com.chocohead.tfh.ThatsForHelsinki
+CommonMixin: thats-for-helsinki.mixins.json

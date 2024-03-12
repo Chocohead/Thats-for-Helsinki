@@ -1,0 +1,49 @@
+buildscript {
+	repositories {
+		mavenCentral()
+		maven { url 'https://jitpack.io/' }
+	}
+	dependencies {
+		classpath('com.fox2code.FoxLoader:dev:1.2.29')
+	}
+}
+
+apply plugin: 'foxloader.dev'
+
+version '1.0'
+
+sourceSets {
+	main {
+		java.srcDirs = ['empty']
+	}
+	client {
+		java.srcDirs += ['src/main/java']
+	}
+	server {
+		java.srcDirs += ['src/main/java']
+	}
+}
+
+task clientSourcesJar(type: Jar, dependsOn: clientClasses) {
+    classifier = 'client-sources'
+    from sourceSets.client.allSource
+}
+
+task serverSourcesJar(type: Jar, dependsOn: serverClasses) {
+    classifier = 'server-sources'
+    from sourceSets.server.allSource
+}
+
+artifacts {
+    archives clientSourcesJar    
+    archives serverSourcesJar 
+}
+
+foxloader {
+	modId = 'thats-for-helsinki'
+	modName = "That's For Helsinki"
+	modVersion = project.version
+	modDesc = 'Restoring achievements and statistics'
+	commonMod = 'com.chocohead.tfh.ThatsForHelsinki'
+	commonMixin = 'thats-for-helsinki.mixins.json'
+}
