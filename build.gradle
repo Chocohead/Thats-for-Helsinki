@@ -33,7 +33,7 @@ task clientJar(type: Jar, dependsOn: clientClasses) {
     afterEvaluate {
     	manifest {
     		from(jar.manifest)
-    		attributes 'CommonMixin:': 'thats-for-helsinki.mixins.json'
+    		attributes 'CommonMixin': 'thats-for-helsinki.mixins.json'
 		}
     }
 }
@@ -44,7 +44,7 @@ task serverJar(type: Jar, dependsOn: serverClasses) {
     afterEvaluate {
     	manifest {
     		from(jar.manifest)
-    		attributes 'CommonMixin:': 'thats-for-helsinki.mixins.json'
+    		attributes 'CommonMixin': 'thats-for-helsinki.mixins.json'
 		}
     }
 }
