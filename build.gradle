@@ -25,12 +25,12 @@ sourceSets {
 }
 
 task clientSourcesJar(type: Jar, dependsOn: clientClasses) {
-    classifier = 'client-sources'
+    archiveClassifier = 'client-sources'
     from sourceSets.client.allSource
 }
 
 task serverSourcesJar(type: Jar, dependsOn: serverClasses) {
-    classifier = 'server-sources'
+    archiveClassifier = 'server-sources'
     from sourceSets.server.allSource
 }
 
