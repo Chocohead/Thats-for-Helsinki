@@ -25,7 +25,7 @@ sourceSets {
 }
 
 jar.enabled = false
-sourceJar.enabled = false
+sourcesJar.enabled = false
 
 task clientJar(type: Jar, dependsOn: clientClasses) {
     archiveClassifier = 'client'
