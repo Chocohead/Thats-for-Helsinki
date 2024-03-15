@@ -10,5 +10,8 @@
 	"client": [
 		"client.EntityPlayerSPMixin",
 		"client.GuiIngameMenuMixin"
+	],
+	"server": [
+		"EntityPlayerMPMixin"
 	]
 }
